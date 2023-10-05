@@ -1,0 +1,49 @@
+<title>Edit Details</title>
+{% extends 'tl_base.html' %}
+{% block content %}
+
+<h1>Edit Details</h1>
+<form action="{% url 'edit_tl_details' username=tl.username %}" method="POST" enctype="multipart/form-data" >
+  {%csrf_token%}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Full name</label>
+    <input type="text" name="username" value="{{tl.username}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" readonly>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Full name</label>
+    <input type="text" name="name" value="{{tl.name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email Address</label>
+    <input type="email" name="email" value="{{tl.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Mobile Number</label>
+    <input type="number" name="number" value="{{tl.number}}"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Birth Date</label>
+    <input type="date" name="dob" value="{{tl.dob|date:'Y-m-d'}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Address</label>
+    <input type="text" name="address1" value="{{tl.address1}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address Line 1"><br>
+    <input type="text" name="address2" value="{{tl.address2}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address Line 2"><br>
+    <input type="text" name="address3" value="{{tl.address3}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Address Line 3"><br>
+    <input type="text" name="pincode" value="{{tl.pincode}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Pinncode">
+
+
+  </div>
+  <br>
+  <div class="form-group">
+    <img src="{{ tl.image.url }}" class="w-25"><br>
+    <label for="exampleInputEmail1">Upload Image</label>
+
+    <input type="file" name="img"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock content %}

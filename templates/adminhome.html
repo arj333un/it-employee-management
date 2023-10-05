@@ -1,0 +1,34 @@
+{% extends 'adminbase.html' %}
+{% block content %}
+<h1>ADMIN  DASHBOARD</h1><br>
+   
+
+        <div style="background-color:grey;" class="card mb-3" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLR1hT9AX8mH7CDyuWqRDTxqRuQB5TzCbWJZR89c_1NW9_tA3wZhuV6olw1MFvNWpphVk&usqp=CAU" width="300" height="300" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div  class="col-md-8">
+              <div  class="card-body">
+                <h5  style="color:black;"class="card-title">ADMIN || IT EMPLOYEE MANAGEMENT SYSTEM</h5><br>
+              
+                <a href="{% url 'validatetl' %}" class="btn btn-primary btn-lg">TL VALIDATION</a>
+                <a href="{% url 'validatedev' %}" class="btn btn-primary btn-lg">DEVELOPER VALIDATION({{count}})</a>
+                <a href="{% url 'progress' %}" class="btn btn-primary btn-lg"> Pending Projects({{count1}})</a>
+
+
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background-color:grey;" class="card w-70">
+          <div class="card-body">
+            <h5 style="color:black;"class="card-title">IT EMPLOYEE MANAGEMENT SYSTEM</h5>
+
+            
+           
+          </div>
+        </div>
+
+{% endblock content %}

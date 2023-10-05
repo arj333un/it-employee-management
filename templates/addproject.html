@@ -1,0 +1,47 @@
+<title>Add Projects</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+<form action="{% url 'addproject' %}" id="projectForm" method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Project Title</label>
+    <input type="text" name="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Client</label>
+    <input type="text" name="client" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Description</label>
+    <input type="text" name="description" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Requirements</label>
+    <input type="text" name="req" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Start Date</label>
+    <input type="date" name="stdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">End Date</label>
+    <input type="date" name="endate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Requirements Document</label>
+    <input type="file" name="doc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div><br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <script>
+    // Add an event listener to the form submission
+    document.getElementById("projectForm").addEventListener("submit", function(event) {
+      // Prevent the default form submission
+  
+      // Your custom logic here, e.g., sending the form data via AJAX
+      // Once the form submission is successful, show an alert
+      alert("Project added successfully!");
+    });
+  </script>
+</form>
+
+{% endblock content %}

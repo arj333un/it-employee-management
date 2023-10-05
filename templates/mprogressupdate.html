@@ -1,0 +1,42 @@
+{% extends 'dev_base.html' %}
+{% block content %}
+<form action="mod_update" method="POST" enctype="multipart/form-data">
+{%csrf_token%}
+<div class="form-group">
+   
+ 
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Project</label>
+    <select class="form-control" name="project">
+       
+        {% for p in mod %}
+           
+        <option value="{{p.project.title}}">{{p.project.title}}</option>
+       {% endfor %}
+       </select>  </div>
+       <label for="exampleInputEmail1">Module</label>
+       <select class="form-control" name="module">
+       
+        {% for p in mod %}
+           
+        <option value="{{p.module}}">{{p.module}}</option>
+       {% endfor %}
+       </select>  </div>
+       <div class="form-group">
+        <label for="exampleInputEmail1">Upload Document</label>
+        <input type="file" name="doc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+      </div>
+       <div class="form-group">
+        <label for="exampleInputEmail1">Remarks</label>
+        <input type="text" name="remarks" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+
+  
+  
+  
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+{% endblock content %}

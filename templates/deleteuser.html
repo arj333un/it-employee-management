@@ -1,0 +1,42 @@
+<title>Delete User</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+<center><h2 style="color:coral">Delete Users</h2></center>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+    <th>Usename</th>   
+    
+    <th>Role</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in user %}
+    <tr>
+    <td>{{ p.username }}</td>
+    
+    <td>{{ p.role }}</td>
+    <td><a href="{% url 'deluser' username=p.username role=p.role  %}"> <button class="btn btn-danger" id="myButton" >Delete</button><span class="glyphicon glyphicon-ok"  ></span></a>
+    </td>
+    
+    
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+    <br>
+    <script>
+        // Get a reference to the button element
+        var myButton = document.getElementById("myButton");
+    
+        // Add a click event listener to the button
+        myButton.addEventListener("click", function() {
+            // Display the alert when the button is clicked
+            alert("User Deleted");
+     });
+      
+    </script>
+{% endblock %}

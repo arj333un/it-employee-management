@@ -1,0 +1,65 @@
+<title>TL validation</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+<center><h2 style="color:coral">TL Sign-Up Requests</h2></center>
+<div class="table-responsive">
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+    <th>UserName</th>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Department</th>
+    <th>Course Completed</th>
+    <th>Date of Birth</th>
+    <th>Image</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for t in tl %}
+    <tr>
+    <td>{{ t.username }}</td>
+    <td>{{ t.name }}</td>
+    <td>{{ t.email }}</td>
+    <td>{{ t.number }}</td>
+    <td>{{ t.department.department }}</td>
+    <td>{{ t.course.course }}</td>
+    <td>{{ t.dob }}</td>
+    <td>
+        <img src="{{ t.image.url }}" class="w-50"></td>
+    </td>
+    <td>
+    <a href="{% url 'approvetl' username=t.username %}" ><button class="btn btn-success" id="myButton" >Approve</button><span class="glyphicon glyphicon-ok"  ></span></a>
+    <br><br>
+    <a href="{% url 'reject' username=t.username %}" ><button class="btn btn-danger" id="myButton1" >Reject</button><span class="glyphicon glyphicon-ok"  ></span></a>
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+    <br>
+    <br>
+    
+    <script>
+        // Get a reference to the button element
+        var myButton = document.getElementById("myButton");
+    
+        // Add a click event listener to the button
+        myButton.addEventListener("click", function() {
+            // Display the alert when the button is clicked
+            alert("TL Approved !");
+     });
+
+         // Get a reference to the button element
+         var myButton = document.getElementById("myButton1");
+    
+         // Add a click event listener to the button
+         myButton.addEventListener("click", function() {
+             // Display the alert when the button is clicked
+             alert("TL SignUp Request Rejected !");
+      });
+    </script>
+{% endblock %}

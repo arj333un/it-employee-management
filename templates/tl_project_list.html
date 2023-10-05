@@ -1,0 +1,50 @@
+<title>Project List</title>
+{% extends 'tl_base.html' %}
+{% block content %}
+<center><h2 style="color:coral">Assigned Projects</h2></center>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+    <th>Project</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in pro %}
+    <tr>
+    <td>{{ p.title }}</td>
+    <td>{{ p.start_date }}</td>
+    <td>{{ p.end_date }}</td>
+    
+    
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+    <br>
+   
+    
+    {% comment %} <script>
+        updateProgressBar({{ progress_percentage }});
+    </script>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ progress_percentage }}%;" aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
+            {{ progress_percentage }}%
+     </div>
+    </div>
+    <br>
+    <script>
+        function updateProgressBar(progress) {
+            const progressBar = document.querySelector('.progress-bar');
+            progressBar.style.width = progress + '%';
+            progressBar.setAttribute('aria-valuenow', progress);
+            progressBar.textContent = progress + '%';
+    }
+    </script>
+    
+    <script>
+        updateProgressBar({{ progress_percentage}});
+    </script> {% endcomment %}
+
+{% endblock %}

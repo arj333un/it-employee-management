@@ -1,0 +1,19 @@
+<title>Manage Users</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+
+
+  <div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Delete User</h5>
+      <a href="{% url 'deleteuser' %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+  <div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Promote Users</h5>
+      <a href="{% url 'promoteuser' %}" class="btn btn-primary">Action</a>
+    </div>
+  </div>
+{% endblock content %}

@@ -1,0 +1,48 @@
+<title>Profile</title>
+{% extends 'tl_base.html' %}
+{% block content %}
+{% comment %} <div class="card" style="width: 18rem;" style="align-item:center;">
+    <img src="{{user.image.url}}" class="card-img-top" alt="...">
+   <div class="card-body">
+      <p class="card-text">{{user.name}}</p>
+      <p class="card-text">Birth Date : {{user.dob}}</p>
+      <p class="card-text">Address : {{user.address1}} ,{{user.address2}} ,{{user.address3}}</p>
+      
+      <p class="card-text">Pincode : {{user.pincode}}</p>
+      <p class="card-text">Email ID : {{user.email}}</p>
+      <p class="card-text">Conntact Number : {{user.number}}</p>
+
+    </div> 
+  </div> {% endcomment %}
+
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{user.image.url}}" width="300" height="300" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title">{{user.name}}</h3>
+          <p class="card-text">Birth Date : {{user.dob}}</p>
+      <p class="card-text">Address : {{user.address1}} ,{{user.address2}} ,{{user.address3}}</p>
+      
+      <p class="card-text">Pincode : {{user.pincode}}</p>
+      <p class="card-text">Email ID : {{user.email}}</p>
+      <p class="card-text">Conntact Number : {{user.number}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% comment %} <div class="card text-center">
+    
+    <div class="card-body">
+      <h5 class="card-title" style="color:black;" >Name : {{user.name}}</h5>
+      <p class="card-text">Birth Date : {{user.dob}}</p>
+      <p class="card-text">Address : {{user.address1}} ,{{user.address2}} ,{{user.address3}}</p>
+      
+      <p class="card-text">Pincode : {{user.pincode}}</p>
+      <p class="card-text">Email ID : {{user.email}}</p>
+      <p class="card-text">Conntact Number : {{user.number}}</p>
+
+    </div> {% endcomment %}
+{% endblock content %}

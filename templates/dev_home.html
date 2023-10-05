@@ -1,0 +1,56 @@
+{% extends 'dev_base.html' %}
+{% block content %}
+<h1>DEVELOPER DASHBOARD</h1>
+<div class="container-fluid" style="margin-top: 8vw;">
+    <form action="{% url 'dev_home' %}">
+        {% csrf_token %}
+
+        <div style="background-color:grey;" class="card mb-3" style="max-width: 100%;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="{{user.image.url}}" width="300" height="300" class="img-fluid rounded-start" alt="..."> 
+            </div>
+            <div  class="col-md-8">
+              <div  class="card-body">
+                <h5  style="color:black;"class="card-title">PROFILE</h5><br>
+                <h5  style="color:white;"class="card-title">Name : {{user.name}}</h5>
+                <h5 style="color:white;" class="card-title">Department :  {{user.department.department}}</h5>
+                <h5 style="color:white;" class="card-title">Pending Works :  {{count}}</h5>
+    
+
+
+                            
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="background-color:grey;" class="card w-70">
+          <div class="card-body">
+            <h5 style="color:black;"class="card-title">Other Details</h5>
+
+            <p class="card-text"><p class="card-text">Birth Date : {{user.dob}}</p>
+            <p class="card-text">Contact Number : {{user.number}}</p>
+            <p class="card-text">Email Address : {{user.email}}</p></p>
+           
+          </div>
+        </div>
+
+       {% comment %} <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                    <div class="image-container">
+              
+                      <img src="{{user.image.url}}" width="100" height="100" alt="imgar" />
+                       
+                     </div>
+                  <h5 class="card-title">Employee Name : {{user.name}}</h5>
+                  <p class="card-text">Department:{{user.department.department}}</p>
+                  <p class="card-text">Contact Number:{{user.number}}</p>
+                  <p class="card-text">Email:{{user.email}}</p>
+                  
+                </div>
+              </div>
+            </div>  {% endcomment %}
+
+{% endblock content %}

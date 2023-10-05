@@ -1,0 +1,52 @@
+<title>Assign Module</title>
+{% extends 'tl_base.html' %}
+{% block content %}
+<form action="{% url 'assignmodule'%}" id="projectForm" method="POST" enctype="multipart/form-data">
+{%csrf_token%}
+<div class="form-group">
+  <label for="exampleInputEmail1">Developer List</label>
+  <select class="form-control" name="devname">
+      {% for v in var1 %}
+      <option value="{{v.name}}">{{v.name}}</option>
+     {% endfor %}
+     </select>  </div>
+
+  <div class="form-group">
+    <label for="exampleInputEmail1">Project</label>
+    <select class="form-control" name="projectname">
+      {% for v in var4 %}
+      <option value="{{v.id}}">{{v.title}}</option>
+     {% endfor %}
+       </select>  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Module</label>
+    <input type="text" name="module" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+
+     </div>
+  
+  <div class="form-group">
+    <label for="exampleInputEmail1">Start Date</label>
+    <input type="date" name="stdate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">End Date</label>
+    <input type="date" name="enddate" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Requirements Document</label>
+    <input type="file" name="doc" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <script>
+    // Add an event listener to the form submission
+    document.getElementById("projectForm").addEventListener("submit", function(event) {
+      // Prevent the default form submission
+  
+      // Your custom logic here, e.g., sending the form data via AJAX
+      // Once the form submission is successful, show an alert
+      alert("Module Assigned");
+    });
+  </script>
+</form>
+
+{% endblock content %}

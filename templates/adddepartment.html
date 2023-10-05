@@ -1,0 +1,24 @@
+<title>Add Department</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+<form action="{% url 'adddep'  %}" id="DepartmentForm" method="POST">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Department</label>
+    <input type="text" name="department" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+  </div>
+  
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script>
+  // Add an event listener to the form submission
+  document.getElementById("DepartmentForm").addEventListener("submit", function(event) {
+    // Prevent the default form submission
+
+    // Your custom logic here, e.g., sending the form data via AJAX
+    // Once the form submission is successful, show an alert
+    alert("Department added successfully!");
+  });
+</script>
+{% endblock content %}

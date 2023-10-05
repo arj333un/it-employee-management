@@ -1,0 +1,65 @@
+<title>Dev Validation</title>
+{% extends 'adminbase.html' %}
+{% block content %}
+
+<center><h2 style="color:coral">Developer Sign-Up Requests</h2></center>
+<div class="table-responsive">
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+    <th>UserName</th>
+    <th>Full Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+    <th>Department</th>
+    <th>Course Completed</th>
+    <th>Date of Birth</th>
+    <th>Image</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for d in dev %}
+    <tr>
+    <td>{{ d.username }}</td>
+    <td>{{ d.name }}</td>
+    <td>{{ d.email }}</td>
+    <td>{{ d.number }}</td>
+    <td>{{ d.department.department }}</td>
+    <td>{{ d.course.course }}</td>
+    <td>{{ d.dob }}</td>
+    <td>
+        <img src="{{ d.image.url }}" class="w-100 h=100"></td>
+    </td>
+    <td>
+    <a href="{% url 'approvedev' username=d.username %}" ><button class="btn btn-success" id="myButton" >Approve</button><span class="glyphicon glyphicon-ok"  ></span></a>
+    <a href="{% url 'reject_dev' username=d.username %}" ><button class="btn btn-danger" id="myButton1">Reject</button><span class="glyphicon glyphicon-remove"></span></a>
+    </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</div>
+    <br>
+    <br>
+
+    <script>
+        // Get a reference to the button element
+        var myButton = document.getElementById("myButton");
+    
+        // Add a click event listener to the button
+        myButton.addEventListener("click", function() {
+            // Display the alert when the button is clicked
+            alert("Developer Approved");
+     });
+      // Get a reference to the button element
+      var myButton = document.getElementById("myButton1");
+    
+      // Add a click event listener to the button
+      myButton.addEventListener("click", function() {
+          // Display the alert when the button is clicked
+          alert("Developer SignUp Request Rejected");
+   });
+    </script>
+{% endblock %}
+

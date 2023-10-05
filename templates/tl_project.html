@@ -1,0 +1,19 @@
+
+<title>Projects</title>
+{% extends 'tl_base.html' %}
+{% block content %}
+<div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">View Projects</h5>
+      <a href="{% url 'tl_project_list' %}" class="btn btn-primary">View</a>
+    </div>
+  </div>
+
+  <div class="card w-50">
+    <div class="card-body">
+      <h5 class="card-title">Assign Projects</h5>
+      <a href="{% url 'assignmodule' %}" class="btn btn-danger">Assign</a>
+    </div>
+  </div>
+
+{% endblock content %}
